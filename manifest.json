@@ -1,24 +1,23 @@
 {
   "manifest_version": 2,
-  "name": "UnJust Extension",
-  "version": "0.1",
-  "permissions": [
-    "storage"
-  ],
-  "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistient": false
-  },
+  "name": "UJust Extension",
+  "short_name": "Unjust",
+  "description": "Discourages the use of certain words that undermine women",
+  "version": "1.0",
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>"
+        "*://*/*"
       ],
+      "all_frames": true,
       "js": [
-        "content.js"
-      ]
+        "content_script.js"
+      ],
+      "run_at": "document_end"
     }
-  ]
+  ],
+  "browser_action": {
+    "default_title": "UnJust",
+    "default_popup": "popup.html"
+  }
 }
